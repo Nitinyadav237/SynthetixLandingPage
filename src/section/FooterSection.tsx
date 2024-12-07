@@ -1,4 +1,4 @@
-import { containerVariants, imageVariants, itemVariants } from "../Animation";
+import { containerVariants, itemVariants } from "../Animation";
 import { email, isLess, logo, rightArrow } from "../assets/svg";
 import { cardInfo, footAbout, footHome, icons } from "../constant";
 import { motion } from 'framer-motion';
