@@ -1,10 +1,35 @@
 import { eyeimg, image1, image2, image3 } from "../assets/images";
 import { explore } from "../assets/svg";
 import ImageHolder from "./../components/ImageHolder";
+import { motion } from 'framer-motion';
 const HeroSection = () => {
+    const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Time between each child animation
+      },
+    },
+  };
+
+  const textVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeInOut" }, // Added ease
+    },
+  };
+
   return (
-    <div className="flex flex-col lg:flex-row">
-      <div className="pr-20 text-[3rem] font-semibold uppercase leading-[3.5rem] tracking-wide md:py-12 md:text-[6rem] md:leading-[7rem] lg:py-32 lg:text-[8rem] lg:leading-[8rem]">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+
+      className="flex flex-col lg:flex-row">
+      <motion.div variants={textVariants} className="pr-20 text-[3rem] font-semibold uppercase leading-[3.5rem] tracking-wide md:py-12 md:text-[6rem] md:leading-[7rem] lg:py-32 lg:text-[8rem] lg:leading-[8rem]">
         <span className="-mb-12 flex items-center gap-2 md:-mb-28">
           <span>The</span>
           <span className="inline-flex h-14 w-32 justify-center rounded-full border-2 border-[#97c3e9] px-4 pt-1 text-center text-[#97c3e9] md:h-24 md:w-60">
@@ -49,10 +74,10 @@ const HeroSection = () => {
             satisfied customer of our company
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* right side image */}
-      <div className="relative mt-32 h-full w-full md:mt-20 lg:mt-0">
+      <div  className="relative mt-32 h-full w-full md:mt-20 lg:mt-0">
         <ImageHolder />
 
         {/* circle eyeImage */}
@@ -65,7 +90,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

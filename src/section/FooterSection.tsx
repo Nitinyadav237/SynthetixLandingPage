@@ -1,41 +1,50 @@
+import { containerVariants, imageVariants, itemVariants } from "../Animation";
 import { email, isLess, logo, rightArrow } from "../assets/svg";
 import { cardInfo, footAbout, footHome, icons } from "../constant";
+import { motion } from 'framer-motion';
 
 const FooterSection = () => {
   return (
     <div className="mt-20 md:mt-[44rem] lg:mt-[92rem]">
       {/* First Part */}
-      <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
+      <motion.div
+         variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        className="flex flex-col items-center justify-center gap-8 lg:flex-row">
         {cardInfo.map((item) => (
           <div
             key={item.id}
             className="group rounded-2xl border-2 border-[#97c3e9] px-8 py-4 hover:cursor-pointer hover:border-none hover:bg-[#a4caeb] md:h-[23rem] md:w-[32rem]"
           >
-            <div className="flex items-center justify-between">
+            <motion.div variants={itemVariants} className="flex items-center justify-between">
               <h1 className="text-4xl font-semibold text-[#97c3e9] group-hover:text-[#def38b]">
-                {item.id}
+                ({item.id})
               </h1>
-              <div className="flex h-14 w-14 rotate-180 items-center justify-center rounded-full border-2 border-[#97c3e9] bg-[#97c3e9] group-hover:border-[#97c3e9] group-hover:bg-[#def38b]">
+              <div  className="flex h-14 w-14 rotate-180 items-center justify-center rounded-full border-2 border-[#97c3e9] bg-[#97c3e9] group-hover:border-[#97c3e9] group-hover:bg-[#def38b]">
                 <img className="h-10 w-10" src={isLess} alt="right arrow" />
               </div>
-            </div>
-            <h1 className="pt-14 text-4xl font-semibold uppercase">
+            </motion.div>
+            <motion.h1 variants={itemVariants} className="pt-14 text-4xl font-semibold uppercase">
               {item.title}
-            </h1>
-            <p className="pt-5 text-base leading-relaxed text-[#49494a]">
+            </motion.h1>
+            <motion.p variants={itemVariants} className="pt-5 text-base leading-relaxed text-[#49494a]">
               {item.para}
-            </p>
+            </motion.p>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Second Part */}
-      <div className="mt-20 rounded-3xl bg-[#def38b] px-4 text-[#49494a] md:px-16">
+      <div
+        
+        className="mt-20 rounded-3xl bg-[#def38b] px-4 text-[#49494a] md:px-16">
         <div className="flex flex-col gap-10 py-10 lg:flex-row">
           {/* Logo and Description */}
           <div className="w-full lg:w-2/5">
             <img className="object-cover" src={logo} alt="logo" />
-            <p className="pt-5 capitalize">
+            <p  className="pt-5 capitalize">
               Synthetix is a derivatives liquidity protocol providing the
               backbone for derivatives trading in DeFi, allowing anyone,
               anywhere to gain on-chain exposure.

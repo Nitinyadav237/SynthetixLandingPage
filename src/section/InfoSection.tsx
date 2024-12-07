@@ -1,18 +1,24 @@
+import { containerVariants, imageVariants, itemVariants } from "../Animation";
 import { InfoImg1, InfoImg2, InfoMain } from "../assets/images";
 import Button from "../components/button";
+import { motion } from 'framer-motion';
 
 const InfoSection = () => {
   return (
-    <div className="relative z-20 hidden md:block">
+    <motion.div  variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      className="relative z-20 hidden md:block">
       {/* First Part */}
       <div className="absolute z-20 flex justify-between py-20">
         {/* Heading (Left Part) */}
         <div>
-          <h1 className="text-balance font-semibold uppercase tracking-tight md:w-60 lg:w-full lg:text-[4rem] lg:leading-[4rem]">
+          <motion.h1 variants={itemVariants} className="text-balance font-semibold uppercase tracking-tight md:w-60 lg:w-full lg:text-[4rem] lg:leading-[4rem]">
             Staking collateral with <br />
             synthetix helps support <br />
             deep liquidity...
-          </h1>
+          </motion.h1>
           <Button
             label="Start Staking"
             className="mt-5 gap-4 border-2 border-[#5e5e5f] bg-white font-medium text-black lg:mt-10 lg:gap-8"
@@ -20,8 +26,12 @@ const InfoSection = () => {
         </div>
 
         {/* Images and Description (Right Part) */}
-        <div className="space-y-4 lg:w-1/3">
-          <div className="flex justify-end gap-4 px-2 lg:gap-8">
+        <motion.div  variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="space-y-4 lg:w-1/3">
+          <motion.div variants={imageVariants} className="flex justify-end gap-4 px-2 lg:gap-8">
             {[InfoImg1, InfoImg2].map((imgSrc, index) => (
               <img
                 key={index}
@@ -30,19 +40,23 @@ const InfoSection = () => {
                 alt={`img${index + 1}`}
               />
             ))}
-          </div>
-          <p className="text-balance px-2 text-end indent-20 text-sm leading-normal tracking-wide text-[#49494a] lg:text-xl">
+          </motion.div>
+          <motion.p variants={itemVariants} className="text-balance px-2 text-end indent-20 text-sm leading-normal tracking-wide text-[#49494a] lg:text-xl">
             Synthetix provides liquidity for permissionless derivatives like
             perpetual futures. Stakers get rewarded for helping to support a
             more robust ecosystem.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* Second Part */}
-      <div className="absolute left-14 top-28 z-10 flex items-center justify-center lg:left-0 lg:top-24">
+      <motion.div  variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        className="absolute left-14 top-28 z-10 flex items-center justify-center lg:left-0 lg:top-24">
         {/* Circle Container */}
-        <div className="relative flex h-[30rem] w-[30rem] items-center justify-center rounded-full border-8 lg:h-[80rem] lg:w-[80rem]">
+        <motion.div variants={itemVariants} className="relative flex h-[30rem] w-[30rem] items-center justify-center rounded-full border-8 lg:h-[80rem] lg:w-[80rem]">
           {/* Inner Stats */}
           {[
             {
@@ -74,30 +88,34 @@ const InfoSection = () => {
               key={index}
               className={`absolute flex h-24 w-24 flex-col items-center justify-center rounded-full border-4 lg:h-48 lg:w-48 lg:border-8 ${item.position} lg:space-y-5`}
             >
-              <h3
+              <motion.h3 variants={itemVariants}
                 className={`text-center text-sm uppercase lg:text-xl ${item.title !== "Unique Trading Accounts" ? "lg:whitespace-nowrap" : ""} `}
               >
                 {item.title}
-              </h3>
-              <p className={`text-xl lg:text-5xl text-[${item.color}]`}>
+              </motion.h3>
+              <motion.p  variants={itemVariants} className={`text-xl lg:text-5xl text-[${item.color}]`}>
                 {item.value}
-              </p>
+              </motion.p>
             </div>
           ))}
 
           {/* Main Circle Image */}
-          <div className="flex h-[20rem] w-[20rem] items-center justify-center rounded-full border-8 lg:h-[60rem] lg:w-[60rem]">
+          <motion.div  variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex h-[20rem] w-[20rem] items-center justify-center rounded-full border-8 lg:h-[60rem] lg:w-[60rem]">
             <div className="flex h-[15rem] w-[15rem] items-center justify-center rounded-full bg-blue-400 lg:h-[40rem] lg:w-[40rem]">
-              <img
+              <motion.img variants={imageVariants}
                 className="h-full w-full rounded-full object-cover"
                 src={InfoMain}
                 alt="mainImg"
               />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 
