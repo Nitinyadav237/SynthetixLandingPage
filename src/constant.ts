@@ -10,7 +10,7 @@ export const icons = [
 export const EcoCard = [
   {
     id: 1,
-    image: "../src/assets/images/Eco2.png",
+    image: "src/assets/images/Eco2.png",
     color: "bg-[#1e80e2]",
     title: "Kwenta",
     sub: "Trade Crypto, Forex, and commodities with up to 50x leverage and deep liquidity",
@@ -18,7 +18,7 @@ export const EcoCard = [
   },
   {
     id: 2,
-    image: "../src/assets/images/Eco3.png",
+    image: "src/assets/images/Eco3.png",
     color: "bg-[#00a2d3]",
     title: "Aave",
     sub: "Borrow and lend crypto assets with ease using Aave's decentralized liquidity protocol",
@@ -26,7 +26,7 @@ export const EcoCard = [
   },
   {
     id: 3,
-    image: "../src/assets/images/Eco4.png",
+    image: "src/assets/images/Eco4.png",
     color: "bg-[#06b898]",
     title: "Uniswap",
     sub: "Swap tokens seamlessly with low fees on the largest decentralized exchange",
@@ -34,7 +34,7 @@ export const EcoCard = [
   },
   {
     id: 4,
-    image: "../src/assets/images/Eco5.png",
+    image: "src/assets/images/Eco5.png",
     color: "bg-[#151617]",
     title: "Compound",
     sub: "Earn interest on your crypto assets by supplying them to Compound's protocol",
